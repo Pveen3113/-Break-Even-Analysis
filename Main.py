@@ -211,3 +211,36 @@ def analysis(pname, fcost, vcost, scost):
     print("\n\n*************************************************************************************************")
     print(f'More than {round(breakeven) + 1} {pname} need to sell in order to make profit.')
     print("*************************************************************************************************\n\n")
+
+    while True:
+        MainMenu()
+        while True:
+            try:
+                choice = int(input("Enter your choice: "))
+                break
+            except ValueError:
+                print("Invalid choice. Try again...")
+        if choice == 1:
+            Pname, Fcost, Vcost, Scost = Details(qty)
+            Calculation(revenue, cost, profit, avgcost, Fcost, Vcost, Scost, qty, Pname)
+
+        elif choice == 2:
+            costGraph(cost, Pname, qty)
+
+        elif choice == 3:
+            revenueGraph(revenue, Pname, qty)
+
+        elif choice == 4:
+            profitGraph(profit, qty, Pname)
+
+        elif choice == 5:
+            allGraph(cost, revenue, profit, qty, Pname)
+
+        elif choice == 6:
+            avgGraph(Pname, avgcost, Scost, qty)
+
+        elif choice == 7:
+            analysis(Pname, Fcost, Vcost, Scost)
+
+        elif choice == 8:
+            sys.exit()
